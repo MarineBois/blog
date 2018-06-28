@@ -34,7 +34,7 @@
 			<li><h2>'.$affichage_article['img'].$affichage_article['titre'].'</h2></li>');
 	if (!empty($affichage_article['image'])){
 		echo('	
-			<li><img class="images" src=img/'.$affichage_article['image'].' alt="'.$affichage_article['description'].'"/></li>
+			<li><img class="images_full" src=img/'.$affichage_article['image'].' alt="'.$affichage_article['description'].'"/></li>
 		');	
 	}		
 	echo('		

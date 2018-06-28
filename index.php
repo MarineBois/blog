@@ -7,9 +7,9 @@
 
 			<section >
 
-				<div class="flex">
+				<div class="flexcolumn">
 
-					<h2><i class="fas fa-home"></i> Accueil</h2>				
+					<a href="index.php"><h2><i class="fas fa-home"></i> Accueil</h2></a>				
 
 					<?php include 'php/affichage.php'; ?>
 

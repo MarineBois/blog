@@ -37,8 +37,8 @@ session_start();
 			FROM article
 			INNER JOIN auteur ON auteur.id = article.idAuteur
 			INNER JOIN categorie ON categorie.id = article.idCategorie
-			ORDER BY date
-		     '
+			ORDER BY date DESC
+ 		     '
 		);
 
 		$query->execute();

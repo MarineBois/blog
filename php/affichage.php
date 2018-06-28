@@ -22,17 +22,19 @@ session_start();
 		<form method="POST" action="php/recherche.php">
 			<label for="recherche">Afficher une catégorie</label>
 			<select name="categorie" id="categorie">
-				<option value="0" selected>Toutes</option>	
+				<option value="0">Toutes</option>	
 		');
+
 
 		foreach($categories as $index){
 			echo('<option value="'.$index['id'].'">'.$index['libelle'].'</option>');
 		};
-	echo('
-			</select>
-			<button type="submit"><i class=\'fas fa-search\'></i></button>
-		</form>
-	</div>	');
+		echo('
+				</select>
+				<button type="submit"><i class=\'fas fa-search\'></i></button>
+			</form>
+		</div>	');
+	
 
 
 //affichage des articles :
@@ -92,6 +94,8 @@ if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){
 	        titre,
 	        contenu,
 	        nom,
+			image,
+			description,
 	        date
 	     FROM article
 	     INNER JOIN auteur ON auteur.id = article.idAuteur
@@ -108,6 +112,10 @@ if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){
 
 	$articles = $query->fetchAll(PDO::FETCH_ASSOC);
 
+	if(empty($articles)) {
+		echo('<p>Cette catégorie ne contient pas encore d\'articles</p>');
+	}
+
 }else {
 	$query = $pdo->prepare
 	(
@@ -119,6 +127,8 @@ if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){
 	        titre,
 	        contenu,
 	        nom,
+			image,
+			description,
 	        date
 	     FROM article
 	     INNER JOIN auteur ON auteur.id = article.idAuteur
@@ -149,8 +159,13 @@ if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){
 
 		echo('
 			<ul class="index">
-				<li><h2><a href="article.php?idArticle='.$article['id'].'"> '.$article['img'].' </i>'.$article['titre'].'</a></h2></li>
-		
+				<li><h2><a href="article.php?idArticle='.$article['id'].'"> '.$article['img'].' </i>'.$article['titre'].'</a></h2></li>');
+				if (!empty($article['image'])){
+					echo('	
+						<li><img class="images" src=img/'.$article['image'].' alt="'.$article['description'].'"/></li>
+					');	
+				}
+		echo('		
 				<li class="overflow">'.$contenuTronque.'[...]</li>
 				<li><small>Rédigé par '.$article['nom'].' le '.$date.'</small></li>
 				<li><small>Catégorie : '.$article['libelle'].'</small></li>

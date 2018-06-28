@@ -54,11 +54,11 @@ echo('
 					<input type="text" name="titre" id="'.$titre.'" value="'.$titre.'">
 				</li>
 				<li>
-					<label for="'.$image.'"> Titre :</label>
+					<label for="'.$image.'"> Nom de l\'image dans le dossier img :</label>
 					<input type="text" name="image" id="'.$image.'" value="'.$image.'">
 				</li>
 				<li>
-					<label for="'.$description.'"> Titre :</label>
+					<label for="'.$description.'"> Description de l\'image :</label>
 					<input type="text" name="description" id="'.$description.'" value="'.$description.'">
 				</li>	
 				<li>
