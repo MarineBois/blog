@@ -16,3 +16,5 @@ avec :
 
 dans le dossier bdd il y a une petite bdd prête avec quelques articles et quelques auteurs pour tester.
 
+28/06/2018 update
+
