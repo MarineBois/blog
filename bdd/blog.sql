@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 28 Juin 2018 à 16:47
+-- Généré le :  Ven 29 Juin 2018 à 16:49
 -- Version du serveur :  5.7.22-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.30-0ubuntu0.16.04.1
 
@@ -33,19 +33,22 @@ CREATE TABLE `article` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idAuteur` smallint(5) NOT NULL,
   `idCategorie` smallint(5) DEFAULT NULL,
-  `image` varchar(200) NOT NULL,
-  `description` varchar(50) NOT NULL
+  `image` varchar(200) DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  `modifierPar` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `article`
 --
 
-INSERT INTO `article` (`id`, `titre`, `contenu`, `date`, `idAuteur`, `idCategorie`, `image`, `description`) VALUES
-(3, 'Ready player one', 'Ready player one le film ', '2018-06-26 15:27:58', 2, 4, 'ready.jpg', 'affiche du film Ready player one'),
-(14, 'gfsgd', '\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum, eros ut ullamcorper lacinia, mi risus imperdiet ex, non dignissim dui quam nec augue. Phasellus dignissim mattis libero vitae fermentum. Suspendisse bibendum felis et enim venenatis ultrices. Pellentesque vel arcu vitae ligula congue laoreet eu sit amet magna. Vivamus eu pharetra odio. In eleifend, augue vel porttitor lacinia, neque elit cursus est, sit amet semper justo nulla vitae erat. Nunc tincidunt erat tristique semper feugiat. Praesent ante lectus, sollicitudin eu laoreet nec, accumsan nec ex. Maecenas id suscipit justo, ac pulvinar libero. Nunc a ullamcorper urna, in vestibulum justo. Duis in orci quis lacus fermentum ultricies. Cras tincidunt dui at lectus semper, vitae laoreet mi interdum.\r\n\r\nAenean sapien quam, finibus in dolor et, rutrum ultrices lectus. Proin ornare ligula faucibus neque sodales, in aliquet elit sodales. Proin fringilla volutpat ante, sit amet rutrum ligula pulvinar et. Sed a tortor sed arcu sollicitudin dictum in sit amet nunc. Ut at felis posuere, condimentum sem sed, imperdiet risus. Morbi fringilla nibh sed nulla condimentum interdum. Pellentesque eget mauris et enim pulvinar varius vel ut lorem. Quisque sodales erat vitae mi fermentum feugiat non non felis. Ut id libero fringilla, hendrerit tortor sed, vehicula sem. Fusce lobortis orci lacus, quis consequat purus eleifend nec. Nulla placerat diam odio, id viverra nulla fermentum non.\r\n\r\nVivamus pellentesque nisi cursus velit eleifend, at feugiat felis fermentum. Aenean faucibus lorem non urna molestie, eget vestibulum massa bibendum. Praesent dapibus nisi et mauris malesuada, quis auctor metus sagittis. Mauris nec aliquet justo, id.', '2018-06-27 11:51:56', 1, 1, '', '0'),
-(20, 'Ori', 'un petit jeu tout beau et tout mignon !', '2018-06-28 14:31:29', 1, 1, 'ori.jpg', 'image de présentation du jeu '),
-(21, 'Le développement web', 'le développement web c\'est fantastique !!', '2018-06-28 16:31:55', 1, 6, '', '');
+INSERT INTO `article` (`id`, `titre`, `contenu`, `date`, `idAuteur`, `idCategorie`, `image`, `description`, `modifierPar`) VALUES
+(3, 'Ready player one', 'Ready player one le film ', '2018-06-26 15:27:58', 2, 4, 'ready.jpg', 'affiche du film Ready player one', 'Marine'),
+(31, 'jeux videoshghfgfj', 'jeux videos', '2018-06-29 14:20:49', 7, 1, '', '', 'Géraud'),
+(32, 'Musique', 'Musique', '2018-06-29 14:22:11', 7, 5, '', '', ''),
+(33, 'voyages', 'voyages voyages !!', '2018-06-29 14:22:26', 7, 2, '', '', ''),
+(34, 'Le gateau au chocolat3', 'miamcwxcwx', '2018-06-29 14:22:39', 7, 3, '', '', 'admin'),
+(35, 'SQL', 'j\'aime pas les requetes qui beugues', '2018-06-29 14:23:11', 2, 6, '', '', 'Marine');
 
 -- --------------------------------------------------------
 
@@ -64,9 +67,9 @@ CREATE TABLE `auteur` (
 --
 
 INSERT INTO `auteur` (`id`, `nom`, `mdp`) VALUES
-(1, 'Marine', '$2y$10$x0hXB7E8MspcUGyFz/dtxuu4wAO/rNtdgyaCI4O3tLRc3Q7pKoYK2'),
 (2, 'Géraud', '$2y$10$x0hXB7E8MspcUGyFz/dtxuu4wAO/rNtdgyaCI4O3tLRc3Q7pKoYK2'),
-(5, 'admin', '$2y$10$jfV4CW3Xl.3eChOwVdZLdODAtkqXVfGTyF.gqoynRUzmya9//kxbi');
+(5, 'admin', '$2y$10$k861Rh9HEH7bVmCbY6QACucrcxJmy6Ld0d6sxvDKNVvAiIA2T4ckW'),
+(7, 'Marine', '$2y$10$CPb84OIrYfw2ajLbWu6xNOXIn3v3I3j98Sp3cDQ3W.4bWrZdnO0VG');
 
 -- --------------------------------------------------------
 
@@ -115,7 +118,7 @@ INSERT INTO `commentaire` (`id`, `pseudo`, `contenu`, `date`, `idArticle`) VALUE
 (2, 'dfeqsgfrez', 'grezgreq', '2018-06-27 13:57:27', 3),
 (3, 'gfrszqg', 'grqezgre', '2018-06-27 13:57:59', 3),
 (5, 'hackerman', '&lt;script&gt;alert(\'Bouhhhhh\')&lt;/script&gt;', '2018-06-28 12:26:45', 3),
-(9, 'bouh', 'bouh', '2018-06-28 16:08:26', 20);
+(14, 'fana de chocolat', 'yes meilleur recette', '2018-06-29 14:48:20', 34);
 
 --
 -- Index pour les tables exportées
@@ -157,7 +160,7 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT pour la table `auteur`
 --
@@ -172,7 +175,7 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Contraintes pour les tables exportées
 --

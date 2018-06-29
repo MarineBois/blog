@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+
+include 'utilities.php';
+
 
 $_SESSION['recherche'] = $_POST['categorie'];
 

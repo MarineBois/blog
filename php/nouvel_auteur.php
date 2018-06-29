@@ -1,9 +1,6 @@
 <?php 
 
 
-
-var_dump($_POST);
-
 if ($_POST['password'] === $_POST['password2']) {
 
 $nom = htmlspecialchars($_POST['nom']);

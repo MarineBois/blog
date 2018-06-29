@@ -2,8 +2,6 @@
 
 
 
-	include 'utilities.php';
-
 	// on supprime d'abord les commentaires liés à l'article :
 	$query = $pdo->prepare
 	(

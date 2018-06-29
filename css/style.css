@@ -20,11 +20,14 @@ form
 }
 form fieldset
 {
+
     border-color:#29D9C2;
     border-radius: 4px;
 }
 form fieldset legend
 {
+       color: #01A2A6;
+    font-size: 1.5em; 
     padding: 0 0.5em;
 }
 
@@ -82,6 +85,7 @@ https://color.adobe.com/fr/Friends-and-foes-color-theme-1175537/edit/?copy=true&
     flex-basis: 50%;
 }
 .flex h2 {
+    font-size:1.5em;
     flex-basis: 100%;
     text-align: center;
 }
@@ -127,8 +131,17 @@ h1 a:hover
 
 h1, h2, h3
 {
+
     color: #01A2A6;
     letter-spacing: 0.1em;
+}
+
+h2 {
+     font-size: 1.8em; 
+}
+
+#commentaires {
+    text-align: center;
 }
 
 header 
@@ -163,8 +176,14 @@ main
     width: 85%;
 }
 
+#recherchebtn{
+    border:none;
+    background-color: transparent;
+}
 
-
+#rechercheform {
+    align-self: flex-end;
+}
 
 
 .liButton{
@@ -282,7 +301,7 @@ main
     padding: 15px;
 }
 .admin_table td{
-    padding: 10px;
+    padding: 10px 5px;
     border-top: 1px solid #7DCEA0;
 
 }
@@ -290,7 +309,23 @@ main
 .admin_table th {
     padding: 15px;
     color: #01A2A6;
-    font-size: 1.6em;
+}
+.admin_table caption {
+    padding: 15px;
+    color: #01A2A6;
+    font-size: 1.5em;
+}
+
+.admin_table td {
+    text-align: center;
+}
+
+.red {
+    color:#EC7063
+}
+
+.action {
+    cursor:pointer;
 }
 
 /*
@@ -338,3 +373,15 @@ main
     align-content: center;
 }
 */
+
+.show {
+    display: none;
+}
+
+#scrollTop {
+    padding:5px;
+    right:0;
+    bottom:0;
+    position:fixed;
+    font-size: 2em;
+}

@@ -12,9 +12,11 @@ avec :
   => supprimer des articles,
   => ajouter des autres
   
-=> possibilité d'ajouter des commentaires sur les articles par n'importe quel visiteur  
+=> L'auteur identifié peut modifier seulement son mot de passe,
+
+=> possibilité d'ajouter des commentaires sur les articles par n'importe quel visiteur
 
 dans le dossier bdd il y a une petite bdd prête avec quelques articles et quelques auteurs pour tester.
 
-28/06/2018 update
+
 

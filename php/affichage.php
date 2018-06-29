@@ -1,8 +1,5 @@
 <?php 
 
-	include 'utilities.php';
-
-session_start();
 
 //requete pour afficher les catégories
 	$query_categorie = $pdo->prepare
@@ -19,19 +16,24 @@ session_start();
 // barre de recherche par catégories :
 
 	echo('
-		<form method="POST" action="php/recherche.php">
+		<form method="POST" action="php/recherche.php" id="rechercheform">
 			<label for="recherche">Afficher une catégorie</label>
 			<select name="categorie" id="categorie">
 				<option value="0">Toutes</option>	
 		');
 
 
+
 		foreach($categories as $index){
-			echo('<option value="'.$index['id'].'">'.$index['libelle'].'</option>');
+
+			$id = htmlspecialchars($index['id']);
+			$libelle = htmlspecialchars($index['libelle']);
+
+			echo('<option value="'.$id.'">'.$libelle.'</option>');
 		};
 		echo('
 				</select>
-				<button type="submit"><i class=\'fas fa-search\'></i></button>
+				<button type="submit" id="recherchebtn"><i class=\'fas fa-search\'></i></button>
 			</form>
 		</div>	');
 	

@@ -2,7 +2,7 @@
 
 //REQUETE POUR RECUPERER LES INFO DE L'ARTICLE :
 
-	include 'utilities.php';
+
 	$query = $pdo->prepare
 	(
 	    'SELECT
@@ -22,7 +22,9 @@
 	     '
 	);
 
-	$query->bindParam(1, $_GET['idArticle'], PDO::PARAM_INT);
+	$idArticle = htmlspecialchars($_GET['idArticle']);
+
+	$query->bindParam(1, $idArticle, PDO::PARAM_INT);
 
 	$query->execute();
 
@@ -45,6 +47,10 @@
 		<hr>');
 
 //AFFICHAGE DES COMMENTAIRES :
+
+
+	echo('<h3 id="commentaires">Commentaires :</h3>');
+
 	$query = $pdo->prepare
 	(
 	    'SELECT

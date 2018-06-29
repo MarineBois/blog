@@ -1,8 +1,5 @@
 <?php
 
-include 'utilities.php';
-
-var_dump($_POST);
 
 $idArticle = htmlspecialchars($_POST['id']);
 $pseudo = htmlspecialchars($_POST['pseudo']);

@@ -14,11 +14,23 @@
 		<!--HEADER-->
 		<header>
 
-			<nav>
+			<nav id="top">
 				
 				<a href='index.php'><h1><i class="fas fa-microphone"></i> Mon super blog où je raconte ma life</a></h1>
 				
 				<a href='admin.php'><i class="fas fa-cogs"></i> Administration</a>
+
+				<?php 
+				include 'utilities.php';
+
+				if (isset($_SESSION['connexion_pseudo'])){
+					echo('
+					<a href="php/deconnexion.php">Deconnexion <i class="fas fa-sign-out-alt"></i></a>
+					
+					');
+
+				};
+				?>
 
 			</nav>
 

@@ -1,5 +1,6 @@
-<?php include 'php/header.php'; ?>
+<?php include 'php/header.php'; 
 
+?>
 		<!--MAIN CONTENT-->
 		<main>
 			<h2><i class="fas fa-pencil-alt"></i> Rédiger un nouvel article </h2>
@@ -9,7 +10,7 @@
 
 			<?php 
 				//requete pour afficher les auteurs
-				include 'php/utilities.php';
+
 				$query_auteur = $pdo->prepare
 				(
 				    'SELECT
@@ -59,8 +60,7 @@
 								<label for="auteur">Auteur : </label>
 								<select name="auteur" id="auteur">
 									<?php
-										foreach($auteurs as $values)
-											echo('<option value="'.$values['id'].'">'.$values['nom'].'</option>');
+											echo('<option value="'.$_SESSION['connexion_pseudo'].'">'.$_SESSION['connexion_pseudo'].'</option>');
 									?>	
 								</select>		
 							</li>

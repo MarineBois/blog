@@ -1,4 +1,4 @@
-<?php include 'php/header.php'; ?>
+<?php include 'php/header.php';?>
 
 		<!--MAIN CONTENT-->
 		<main>
@@ -9,7 +9,15 @@
 
 <?php 
 
-include 'php/utilities.php';
+//condition pour vérifier que l'id qui passe par l'url existe bien et qu'il soit un nombre :
+
+if(!array_key_exists('idArticle', $_GET) OR !ctype_digit($_GET['idArticle'])){
+	header('Location: index.php');
+	exit();
+}
+
+
+
 $query = $pdo->prepare
 (
     'SELECT
@@ -64,6 +72,12 @@ echo('
 				<li>
 					<label for="'.$contenu.'">Article : </label>
 					<textarea type="text" name="contenu" id="'.$contenu.'">'.$contenu.'</textarea>
+				</li>
+				<li>
+					<label for="auteur">Auteur : </label>
+					<select name="auteur" id="auteur">
+						<option value="'.$_SESSION['connexion_pseudo'].'">'.$_SESSION['connexion_pseudo'].'</option>
+					</select>		
 				</li>
 				<li class="liButton">
 					<label for="MAJ"></label>
