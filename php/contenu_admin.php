@@ -1,7 +1,5 @@
 <?php
 
-
-
 	if(!isset($_SESSION['connexion_pseudo'])) {
 	
 		echo('

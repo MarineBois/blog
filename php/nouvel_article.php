@@ -1,5 +1,7 @@
 <?php 
 
+include 'utilities.php';
+
 $contenu = htmlspecialchars($_POST['contenu']);
 $auteur = htmlspecialchars($_POST['auteur']);
 $categorie = htmlspecialchars($_POST['categorie']);

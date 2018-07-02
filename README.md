@@ -16,7 +16,7 @@ avec :
 
 => possibilité d'ajouter des commentaires sur les articles par n'importe quel visiteur
 
-dans le dossier bdd il y a une petite bdd prête avec quelques articles et quelques auteurs pour tester.
+dans le dossier bdd il y a une petite bdd prête avec quelques articles et un auteur pour tester. (admin/admin)
 
 
 

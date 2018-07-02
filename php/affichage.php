@@ -1,6 +1,5 @@
 <?php 
 
-
 //requete pour afficher les catégories
 	$query_categorie = $pdo->prepare
 	(
@@ -13,15 +12,14 @@
 
 	$categories = $query_categorie->fetchAll(PDO::FETCH_ASSOC);
 
-// barre de recherche par catégories :
 
+// barre de recherche par catégories :
 	echo('
 		<form method="POST" action="php/recherche.php" id="rechercheform">
 			<label for="recherche">Afficher une catégorie</label>
 			<select name="categorie" id="categorie">
 				<option value="0">Toutes</option>	
 		');
-
 
 
 		foreach($categories as $index){
@@ -83,7 +81,7 @@ if(isset($_GET['page'])) {
 $premiereEntree = ($pageActuelle-1)*$articlesParPages;
 
 //requete pour afficher les articles :
-
+// si une catégorie est stockée dans la session par la recherche on fait la reque pour filtrer sur cette catégorie:
 if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){	
 
 	$query = $pdo->prepare
@@ -117,7 +115,7 @@ if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){
 	if(empty($articles)) {
 		echo('<p>Cette catégorie ne contient pas encore d\'articles</p>');
 	}
-
+// sinon on fait la requete pour afficher toutes les catégories :
 }else {
 	$query = $pdo->prepare
 	(
@@ -148,15 +146,14 @@ if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){
 //boucle pour afficher les articles :
 
 	foreach ($articles as $article) {
-
-
-
+		//si la longueur du text est supérieur à 200 caractères on coupe le text au premier " " après les 200 caractères :
 		if (strlen($article['contenu']) > 200) {
 			$contenuTronque = substr($article['contenu'],0,strpos($article['contenu']," ",200));
 		} else {
 			$contenuTronque = $article['contenu'];
 		}
 
+		// on coupe la date pour ne pas afficher les heures:
 		$date = substr($article['date'],0,10);
 
 		echo('
@@ -176,6 +173,7 @@ if (isset($_SESSION['recherche']) && ($_SESSION['recherche']!="0")){
 		');
 	};
 
+// affichage de la pagination :
 echo('<nav class="pagination">');	
 
 // fait la boucle pour savoir sur quelle page on est

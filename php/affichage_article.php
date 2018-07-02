@@ -1,8 +1,6 @@
 <?php 
 
 //REQUETE POUR RECUPERER LES INFO DE L'ARTICLE :
-
-
 	$query = $pdo->prepare
 	(
 	    'SELECT
@@ -47,8 +45,6 @@
 		<hr>');
 
 //AFFICHAGE DES COMMENTAIRES :
-
-
 	echo('<h3 id="commentaires">Commentaires :</h3>');
 
 	$query = $pdo->prepare
